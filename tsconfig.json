@@ -1,0 +1,18 @@
+{
+     "compilerOptions": {
+          "module": "CommonJS",
+          "rootDir": "src",
+          "baseUrl": "./",
+          "outDir": "./dist",
+          "target": "es5",
+          "inlineSourceMap": true,
+          "inlineSources": true,
+          "esModuleInterop": true,
+          "forceConsistentCasingInFileNames": true,
+          "strict": true,
+          "noImplicitAny": true,
+          "skipLibCheck": true,
+          "moduleResolution": "node"
+     },
+     "include": [ "src/**/*" ]
+}

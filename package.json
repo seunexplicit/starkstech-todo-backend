@@ -1,0 +1,49 @@
+{
+  "name": "starkstech-todo-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "export DEBUG=* && npm run start",
+    "start": "pm2-runtime start ecosystem.config.js --env production --only production",
+    "start:dev": "pm2-runtime kill && pm2-runtime start ecosystem.config.js --env development --only development",
+    "postinstall": "npm install typescript && tsc",
+    "deploy": "git add . && git commit -m Heroku && git push heroku main",
+    "heroku-postbuild": "npm install pm2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seunexplicit/starkstech-todo-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seunexplicit/starkstech-todo-backend/issues"
+  },
+  "homepage": "https://github.com/seunexplicit/starkstech-todo-backend#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "googleapis": "^39.2.0",
+    "joi": "^17.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.12",
+    "multer": "^1.4.3",
+    "pm2": "^5.1.2"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.2",
+    "@types/cors": "^2.8.12",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.13",
+    "@types/jsonwebtoken": "^8.5.5",
+    "@types/mongoose": "^5.11.97",
+    "@types/multer": "^1.4.7",
+    "dotenv": "^10.0.0",
+    "ts-node": "^10.4.0",
+    "tsconfig-paths": "^3.11.0"
+  }
+}
