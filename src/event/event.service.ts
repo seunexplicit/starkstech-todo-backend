@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { google } from "googleapis";
 import { getAuthToken } from "../module/service.module";
-import { EventModel } from "../todo/todo.model";
+import { EventModel } from "../event/event.model";
 
 export class EventService {
 
