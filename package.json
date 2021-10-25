@@ -23,17 +23,18 @@
     "url": "https://github.com/seunexplicit/starkstech-todo-backend/issues"
   },
   "homepage": "https://github.com/seunexplicit/starkstech-todo-backend#readme",
-  "dependencies": {
-    "cookie-parser": "^1.4.5",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "googleapis": "^39.2.0",
-    "joi": "^17.4.2",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.0.12",
-    "multer": "^1.4.3",
-    "pm2": "^5.1.2"
-  },
+     "dependencies": {
+          "cookie-parser": "^1.4.5",
+          "cors": "^2.8.5",
+          "express": "^4.17.1",
+          "googleapis": "^39.2.0",
+          "joi": "^17.4.2",
+          "jsonwebtoken": "^8.5.1",
+          "mongoose": "^6.0.12",
+          "multer": "^1.4.3",
+          "dotenv": "^10.0.0",
+          "pm2": "^5.1.2"
+     },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.2",
     "@types/cors": "^2.8.12",
@@ -42,7 +43,6 @@
     "@types/jsonwebtoken": "^8.5.5",
     "@types/mongoose": "^5.11.97",
     "@types/multer": "^1.4.7",
-    "dotenv": "^10.0.0",
     "ts-node": "^10.4.0",
     "tsconfig-paths": "^3.11.0"
   }
