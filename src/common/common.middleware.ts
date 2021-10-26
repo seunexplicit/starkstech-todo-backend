@@ -50,7 +50,7 @@ export class CommonMiddleware {
                     return res.status(401).send({ message: 'Email & password login is required for this action', status: false });
                }
                if (req.credentialEmail && req.credentialPassword) {
-                    const user = await UserModel.findOne({ email: req.credentialEmail });
+                    const user = await UserModel.findOne({ email: req.credentialEmail }).select('password');
                     console.log(user, "---4")
                     if (user?.password !== req.credentialPassword) return res.status(403).send({ message: 'Invalid/expired authentication token', status: false });
                }
