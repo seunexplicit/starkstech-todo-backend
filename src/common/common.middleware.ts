@@ -38,8 +38,6 @@ export class CommonMiddleware {
                req.credentialId = userCredentials['id'];
                req.credentialPassword = userCredentials['password'];
                req.authToken = userCredentials['token'];
-               console.log(process.env.CLIENT_API_KEY, '---7')
-               console.log(req.authToken, req.credentialEmail, req.credentialPassword, this?.authRequired, "---5")
                if (
                     !req.authToken && !(req.credentialEmail && req.credentialPassword)
                ) return res.status(403).send({ message: 'Invalid/expired authentication token', status: false });
@@ -51,7 +49,6 @@ export class CommonMiddleware {
                }
                if (req.credentialEmail && req.credentialPassword) {
                     const user = await UserModel.findOne({ email: req.credentialEmail }).select('password');
-                    console.log(user, "---4")
                     if (user?.password !== req.credentialPassword) return res.status(403).send({ message: 'Invalid/expired authentication token', status: false });
                }
               
@@ -59,7 +56,6 @@ export class CommonMiddleware {
                next();
           }
           catch (err) {
-               console.log(err, "---1");
                if (err instanceof JsonWebTokenError) return res.status(403).send({ message: 'Invalid/expired authentication token', status: false });
                next(err);
           }
