@@ -113,7 +113,7 @@ export class UserService {
                let user = await UserModel.findOne({
                     $or: [
                          { username: body.username },
-                         { email: body.username },
+                         { email: body.email },
                     ]
                });
 

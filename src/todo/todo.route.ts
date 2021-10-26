@@ -21,6 +21,10 @@ export class TodoRoute extends CommonRoute {
                          this.middleware.authenticateUser,
                          service.getOneTodo
                     )
+                    .patch('/status',
+                         this.middleware.authenticateUser,
+                         service.updateStatus
+                         )
                     .post('/',
                          this.middleware.authenticateUser,
                          service.saveTodo

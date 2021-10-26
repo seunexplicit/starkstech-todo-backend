@@ -41,10 +41,10 @@ export class CommonMiddleware {
                if (
                     !req.authToken && !(req.credentialEmail && req.credentialPassword)
                ) return res.status(403).send({ message: 'Invalid/expired authentication token', status: false });
-               if (this.authRequired == 'oAuth' && !req.authToken) {
+               if (this?.authRequired == 'oAuth' && !req.authToken) {
                     return res.status(401).send({ message: 'Google login is required for this action', status: false });
                }
-               if (this.authRequired == 'localAuth' && !(req.credentialEmail && req.credentialPassword)) {
+               if (this?.authRequired == 'localAuth' && !(req.credentialEmail && req.credentialPassword)) {
                     return res.status(401).send({ message: 'Email & password login is required for this action', status: false });
                }
                if (req.credentialEmail && req.credentialPassword) {

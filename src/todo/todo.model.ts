@@ -6,7 +6,7 @@ interface Task {
      description: string,
      startTime: string,
      endTime: string,
-     files: string[],
+     files: string,
      status: 'undone' | 'done',
 }
 
@@ -27,7 +27,7 @@ const TodoSchema = new Schema<Todo>({
                description: String,
                startTime: String,
                endTime: String,
-               files: [{ type: Schema.Types.ObjectId, ref: 'FilesModel' }],
+               files: { type: Schema.Types.ObjectId, ref: 'FilesModel' },
                status: { type: String, enum: ['undone', 'done'], default: 'undone' }
           }
      ],

@@ -1,10 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src",
-    "\\src\\common",
-    "\\src\\user"
+    "\\dist",
+    "\\dist\\common",
+    "\\node_modules\\googleapis",
+    "\\node_modules\\googleapis\\build",
+    "\\node_modules\\googleapis\\build\\src",
+    "\\node_modules\\googleapis\\build\\src\\apis",
+    "\\src\\event",
+    "\\src\\module",
+    "\\src\\todo"
   ],
-  "SelectedNode": "\\src\\common\\common.middleware.ts",
+  "SelectedNode": "\\dist\\common\\common.route.js",
   "PreviewInSolutionExplorer": false
 }

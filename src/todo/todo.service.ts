@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { TodoModel } from "./todo.model";
+import { UserModel } from "../user/user.model";
 
 export class TodoService {
 
@@ -11,8 +12,11 @@ export class TodoService {
                     ...body,
                     user: credentialId
                });
-               todo.save();
 
+		todo.save();
+	       const user = await UserModel.findOne({_id:credentialId});
+               user?.todos?.push(todo._id);
+		user?.save();
                res.status(200).send({ message: 'success', status: true, data:todo })
           }
           catch (err) {
@@ -24,12 +28,25 @@ export class TodoService {
           try {
                const { params } = req;
                const todo = await TodoModel.findOne({ _id: params.todoId })
-                    .populate('files');
+                    .populate('tasks.files');
 
                res.status(200).send({ message: 'success', status: true, data: todo });
 
           }
           catch (err) {
+               next(err);
+          }
+     }
+
+     async updateStatus(req: Request, res: Response, next: NextFunction) {
+          try{
+               const { body } = req;
+               const todo = await TodoModel.findOne({_id:body.todoId});
+               todo!.tasks[body.taskIndex].status = body.status;
+               todo?.save();
+               res.status(200).send({message:'success', status:true, data:todo}); 
+          }
+          catch(err){
                next(err);
           }
      }
